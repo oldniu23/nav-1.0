@@ -1,0 +1,212 @@
+/*CSS reset*/
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+/*style*/
+body {
+  background: #eee;
+  /* 灰色 */
+}
+.globalHeader {
+  margin: 20px;
+  /* 上下左右都20px */
+}
+@media (min-width: 500px) {
+  .globalHeader {
+    margin: 60px 0 100px;
+  }
+}
+.searchForm {
+  display: flex;
+  justify-content: space-between;
+}
+@media (min-width: 500px) {
+  /* 使用媒体查询 最小宽度500(iphone手机一般最大才三百度) */
+  .searchForm {
+    max-width: 400px;
+    /* 不要直接写死宽度max：xx  用最大最小比较好 */
+    margin-left: auto;
+    margin-right: auto;
+    /* 搜索框居中   */
+    /*新手写法 当元素有最大宽度或者固定宽度时可以用 margin: 0 auto; */
+  }
+}
+
+.searchForm > input {
+  width: 100%;
+  /* 输入框调成100% */
+  margin-right: 10px;
+  /* 让输入框往左收缩10px 给输入框和按钮间留点空隙 */
+  height: 40px;
+  /* 调整输入框高度 按钮的高度也会跟着变 */
+  padding: 0 10px;
+  /* 文字离左边框太近 调整内边距 上下为0 左右10px */
+  border: 1px solid #ddd;
+  /* 先用border覆盖边框再加圆角 */
+  border-radius: 4px;
+  /* 加上圆角 */
+}
+.searchForm > button {
+  white-space: nowrap;
+  /* 按钮不换行 */
+  padding: 0 25px;
+  /* 按钮太拥挤 加个内边距 */
+  border: none;
+  /* 取消掉border */
+  border-radius: 4px;
+  /* 加上圆角 */
+  background: #0282b9;
+  /* 按钮加背景色 */
+  color: white;
+  /* '搜索'两个字的字体颜色 */
+  font-size: 16px;
+  /* 设置字体大小 */
+}
+.globalMain {
+  /* border: 1px solid black; */
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.siteList {
+  /* border: 1px solid red; */
+  margin: 20px;
+  display: flex;
+  /* 让li成一行 */
+  flex-wrap: wrap;
+  /* 空间不够自动换行 */
+  /* 让白框两边和头部两边对齐 */
+  justify-content: space-between;
+}
+@media (min-width: 500px) {
+  .siteList {
+    margin-left: 0px;
+    margin-right: -25px;
+    justify-content: flex-start;
+    /* flex-start是默认的  用这个覆盖掉手机端的space-between */
+  }
+}
+.siteList > li {
+  /* border: 1px solid blue; */
+  margin-bottom: 10px;
+  /* 让白框上下有间距  */
+}
+@media (min-width: 500px) {
+  .siteList > li {
+    margin-right: 25px;
+  }
+}
+.siteList .site {
+  /* 加白色框框 */
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 把logo和链接在border里居中 */
+  flex-direction: column;
+  /* 默认的左右分布 改成垂直分布 */
+  background: white;
+  /* 白框 */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  /* 给白框也加上圆角 */
+  padding: 20px 0;
+  /* 白框内上下给个间距 */
+  position: relative;
+  /* 加上定位 */
+  cursor: pointer;
+  /* 鼠标变成手型 */
+}
+.siteList .site > .logo {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  /* 左右居中 */
+  align-items: center;
+  /* 元素在侧轴居中 */
+  font-size: 64px;
+  /* 字体调整 */
+}
+.siteList .site > .link {
+  font-size: 14;
+  /* 字体调整 */
+  margin-top: 4px;
+  /* 让网址和logo的字体离得稍微远点 */
+}
+.siteList .site > .close {
+  /* 关闭按钮 */
+  position: absolute;
+  top: 0;
+  right: 3px;
+  /* 修改一下x的位置 */
+  display: none;
+  /* 隐藏删除按钮 */
+  cursor: default;
+  /* 到这里手型变成鼠标 */
+}
+.siteList .site:hover > .close {
+  /* 鼠标浮上去 那子元素close显示 */
+  display: block;
+}
+
+.siteList .addButton {
+  background: white;
+  border: 1px solid #ddd;
+  /* 修改背景色和边框颜色 */
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 让+和文字在addButton里居中 */
+  flex-direction: column;
+  /* 默认的左右分布 改成垂直分布 */
+  padding: 20px 0;
+  /* 加上padding就变得和其他白框一样高了 */
+}
+.siteList .addButton .icon {
+  width: 56px;
+  height: 56px;
+}
+.siteList .addButton .text {
+  font-size: 14px;
+  /* 字体调整 */
+  margin-top: 4px;
+  /* 让文字和icon离得稍微远点 */
+}
+.siteList .addButton .icon-wrapper {
+  height: 64px;
+  width: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 让+在border里居中 */
+}
